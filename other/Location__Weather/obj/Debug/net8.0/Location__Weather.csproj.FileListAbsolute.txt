@@ -1,0 +1,17 @@
+T:\C#\other\Location__Weather\bin\Debug\net8.0\Location__Weather.exe
+T:\C#\other\Location__Weather\bin\Debug\net8.0\Location__Weather.deps.json
+T:\C#\other\Location__Weather\bin\Debug\net8.0\Location__Weather.runtimeconfig.json
+T:\C#\other\Location__Weather\bin\Debug\net8.0\Location__Weather.dll
+T:\C#\other\Location__Weather\bin\Debug\net8.0\Location__Weather.pdb
+T:\C#\other\Location__Weather\bin\Debug\net8.0\Newtonsoft.Json.dll
+T:\C#\other\Location__Weather\obj\Debug\net8.0\Location__Weather.csproj.AssemblyReference.cache
+T:\C#\other\Location__Weather\obj\Debug\net8.0\Location__Weather.GeneratedMSBuildEditorConfig.editorconfig
+T:\C#\other\Location__Weather\obj\Debug\net8.0\Location__Weather.AssemblyInfoInputs.cache
+T:\C#\other\Location__Weather\obj\Debug\net8.0\Location__Weather.AssemblyInfo.cs
+T:\C#\other\Location__Weather\obj\Debug\net8.0\Location__Weather.csproj.CoreCompileInputs.cache
+T:\C#\other\Location__Weather\obj\Debug\net8.0\Location.4A5347FC.Up2Date
+T:\C#\other\Location__Weather\obj\Debug\net8.0\Location__Weather.dll
+T:\C#\other\Location__Weather\obj\Debug\net8.0\refint\Location__Weather.dll
+T:\C#\other\Location__Weather\obj\Debug\net8.0\Location__Weather.pdb
+T:\C#\other\Location__Weather\obj\Debug\net8.0\Location__Weather.genruntimeconfig.cache
+T:\C#\other\Location__Weather\obj\Debug\net8.0\ref\Location__Weather.dll
