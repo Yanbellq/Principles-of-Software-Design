@@ -1,0 +1,15 @@
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/bin/Debug/net9.0/lab1
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/bin/Debug/net9.0/lab1.deps.json
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/bin/Debug/net9.0/lab1.runtimeconfig.json
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/bin/Debug/net9.0/lab1.dll
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/bin/Debug/net9.0/lab1.pdb
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/obj/Debug/net9.0/lab1.GeneratedMSBuildEditorConfig.editorconfig
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/obj/Debug/net9.0/lab1.AssemblyInfoInputs.cache
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/obj/Debug/net9.0/lab1.AssemblyInfo.cs
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/obj/Debug/net9.0/lab1.csproj.CoreCompileInputs.cache
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/obj/Debug/net9.0/lab1.sourcelink.json
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/obj/Debug/net9.0/lab1.dll
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/obj/Debug/net9.0/refint/lab1.dll
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/obj/Debug/net9.0/lab1.pdb
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/obj/Debug/net9.0/lab1.genruntimeconfig.cache
+/home/yanbellq/Документы/vscode/C#/lab1/lab1/obj/Debug/net9.0/ref/lab1.dll
