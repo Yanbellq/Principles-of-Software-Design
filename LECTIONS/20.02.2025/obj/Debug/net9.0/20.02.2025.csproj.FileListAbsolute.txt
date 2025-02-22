@@ -1,0 +1,14 @@
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/bin/Debug/net9.0/20.02.2025
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/bin/Debug/net9.0/20.02.2025.deps.json
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/bin/Debug/net9.0/20.02.2025.runtimeconfig.json
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/bin/Debug/net9.0/20.02.2025.dll
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/bin/Debug/net9.0/20.02.2025.pdb
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/obj/Debug/net9.0/20.02.2025.GeneratedMSBuildEditorConfig.editorconfig
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/obj/Debug/net9.0/20.02.2025.AssemblyInfoInputs.cache
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/obj/Debug/net9.0/20.02.2025.AssemblyInfo.cs
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/obj/Debug/net9.0/20.02.2025.csproj.CoreCompileInputs.cache
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/obj/Debug/net9.0/20.02.2025.dll
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/obj/Debug/net9.0/refint/20.02.2025.dll
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/obj/Debug/net9.0/20.02.2025.pdb
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/obj/Debug/net9.0/20.02.2025.genruntimeconfig.cache
+/home/yanbellq/Документы/vscode/LECTIONS/20.02.2025/obj/Debug/net9.0/ref/20.02.2025.dll
