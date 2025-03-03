@@ -7,9 +7,12 @@
         Title="Change Case"
         Width="400" Height="200">
         
-    <StackPanel Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#80000000">
-        <TextBox Name="InputTextBox" Width="360" Height="30" Margin="0,0,0,10" />
-        <Button Name="ChangeCaseButton" Width="360" Height="30" Content="Change Case" Click="OnChangeCaseButtonClick" />
-        <TextBlock Name="ResultTextBlock" Width="360" Height="30" Margin="0,10,0,0" />
-    </StackPanel>
+    <Grid>
+    <Image Source="avares://Task1/Assets/back.jpeg" Stretch="UniformToFill" />
+        <StackPanel Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#80000000">
+            <TextBox Name="InputTextBox" Width="360" Height="30" Margin="0,0,0,10" />
+            <Button Name="ChangeCaseButton" Width="360" Height="30" Content="Change Case" Click="OnChangeCaseButtonClick" />
+            <TextBlock Name="ResultTextBlock" Width="360" Height="30" Margin="0,10,0,0" />
+        </StackPanel>
+    </Grid>
 </Window>
