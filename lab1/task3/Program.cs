@@ -62,7 +62,7 @@ class Program
 
     static void HandleWhiteKingMove((int x, int y) whiteKing, (int x, int y) whiteBishop, (int x, int y) blackQueen)
     {
-        if (IsWithinKingRange(whiteKing, blackQueen))
+        if (IsWithinQueenRange(whiteKing, blackQueen))
         {
             Console.WriteLine("White King attacks Black Queen");
         }
