@@ -13,6 +13,13 @@ namespace Task1
         private void OnChangeCaseButtonClick(object sender, RoutedEventArgs e)
         {
             string input = InputTextBox.Text;
+
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                ResultTextBlock.Text = "Будь ласка, введіть текст";
+                return;
+            }
+
             string result = ChangeCase(input);
             ResultTextBlock.Text = result;
         }
