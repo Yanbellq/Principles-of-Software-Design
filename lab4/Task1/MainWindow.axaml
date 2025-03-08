@@ -1,0 +1,12 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Task1.MainWindow"
+        Title="Task1"
+        Width="900" Height="500"
+        Background="#ffffffff">
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <WrapPanel x:Name="PatientsWrapPanel" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </ScrollViewer>
+
+</Window>

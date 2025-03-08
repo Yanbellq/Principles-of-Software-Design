@@ -6,7 +6,6 @@ class Program
     {
         Random rand = new Random();
 
-        // Ініціалізація зубчастого масиву
         int[][] jaggedArray = new int[5][];
         for (int i = 0; i < jaggedArray.Length; i++)
         {
@@ -17,7 +16,6 @@ class Program
             }
         };
 
-        // Визначення максимальної довжини рядка
         int maxCols = 0;
         foreach (var row in jaggedArray)
         {
@@ -27,7 +25,6 @@ class Program
             }
         }
 
-        // Виведення стовпців
         Console.WriteLine("Елементи кожного стовпця:");
         for (int col = 0; col < maxCols; col++)
         {
@@ -36,20 +33,18 @@ class Program
             {
                 if (col < row.Length)
                 {
-                    Console.Write(row[col] + "\t");
+                    Console.Write(row[col] + "   ");
                 }
                 else
                 {
-                    Console.Write("\t");
+                    Console.Write("   ");
                 }
             }
             Console.WriteLine();
         }
 
-        // Ініціалізація масиву для зберігання сум від'ємних елементів
         int[] negativeSums = new int[maxCols];
 
-        // Підрахунок сум від'ємних елементів для кожного стовпця
         for (int col = 0; col < maxCols; col++)
         {
             int sum = 0;
@@ -63,7 +58,6 @@ class Program
             negativeSums[col] = sum;
         }
 
-        // Виведення результатів
         Console.WriteLine("\nСуми від'ємних елементів для кожного стовпця:");
         for (int i = 0; i < negativeSums.Length; i++)
         {

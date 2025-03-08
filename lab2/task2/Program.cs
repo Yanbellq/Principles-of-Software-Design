@@ -9,7 +9,6 @@ class Program
         int[,] matrix = new int[rows, cols];
         Random rand = new Random();
 
-        // Заповнення матриці випадковими числами в діапазоні від -50 до 49
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
@@ -18,7 +17,6 @@ class Program
             }
         }
 
-        // Виведення матриці
         Console.WriteLine("Матриця:\n");
         for (int i = 0; i < rows; i++)
         {
@@ -31,7 +29,6 @@ class Program
 
         Line(rows);
 
-        // Знаходження максимального та мінімального елементів за модулем
         int maxElement = matrix[0, 0];
         int minElement = matrix[0, 0];
         for (int i = 0; i < rows; i++)
@@ -50,7 +47,6 @@ class Program
         }
 
 
-        // Визначення кількості та суми елементів, які не перебувають між максимальними і мінімальними по модулю
         int count = 0;
         int sum = 0;
         for (int i = 0; i < rows; i++)
@@ -74,7 +70,7 @@ class Program
 
     static void Line(int count)
     {
-        int lineLength = count * 8; // Assuming each element takes up to 8 characters including tab space
+        int lineLength = count * 8;
         string line = new('-', lineLength);
         Console.WriteLine($"\n\n{line}\n");
     }
