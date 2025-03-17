@@ -24,7 +24,7 @@ public class FileService
                     Nationality = data[4],
                     Height = double.Parse(data[5]),
                     Weight = double.Parse(data[6]),
-                    BirthDate = DateTime.Parse(data[7]),
+                    BirthDate = data[7],
                     PhoneNumber = data[8],
                     HomeAddress = new Address
                     {
@@ -39,9 +39,8 @@ public class FileService
                     },
                     HospitalNumber = int.Parse(data[17]),
                     Department = int.Parse(data[18]),
-                    MedicalCardNumber = data[19],
-                    Diagnosis = data[20],
-                    BloodType = data[21]
+                    Diagnosis = data[19],
+                    BloodType = data[20]
                 };
                 patients.Add(patient);
             }
@@ -67,7 +66,6 @@ public class FileService
                 writer.WriteLine($"Адреса: {patient.HomeAddress.PostalCode}, {patient.HomeAddress.Country}, {patient.HomeAddress.Region}, {patient.HomeAddress.District}, {patient.HomeAddress.City}, {patient.HomeAddress.Street}, {patient.HomeAddress.House}, {patient.HomeAddress.Apartment}");
                 writer.WriteLine($"Номер лікарні: {patient.HospitalNumber}");
                 writer.WriteLine($"Відділення: {patient.Department}");
-                writer.WriteLine($"Номер медичної картки: {patient.MedicalCardNumber}");
                 writer.WriteLine($"Діагноз: {patient.Diagnosis}");
                 writer.WriteLine($"Група крові: {patient.BloodType}");
                 writer.WriteLine(new string('-', 50));

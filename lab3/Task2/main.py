@@ -19,7 +19,7 @@ class App:
         self.remove_entry = ttk.Entry(root)
         self.remove_entry.pack(padx=20, pady=10)
         
-        self.remove_button = ttk.Button(root, text="Видалити підтексти", command=self.remove_substring)
+        self.remove_button = ttk.Button(root, text="Видалити", command=self.remove_substring)
         self.remove_button.pack(padx=20, pady=10)
         
         self.replace_entry = ttk.Entry(root)
@@ -28,7 +28,7 @@ class App:
         self.replace_with_entry = ttk.Entry(root)
         self.replace_with_entry.pack(padx=20, pady=10)
         
-        self.replace_button = ttk.Button(root, text="Замінити підтексти", command=self.replace_substring)
+        self.replace_button = ttk.Button(root, text="Замінити", command=self.replace_substring)
         self.replace_button.pack(padx=20, pady=10)
         
     def find_com_addresses(self):

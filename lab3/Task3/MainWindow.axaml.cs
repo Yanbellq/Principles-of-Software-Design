@@ -20,5 +20,10 @@ public partial class MainWindow : Window
             string resultText = inputText.Replace(wordToReplace, newWord);
             ResultTextBox.Text = resultText;
         }
+        else
+        {
+            ResultTextBox.Text = "Будь ласка, введіть текст";
+            return;
+        }
     }
 }

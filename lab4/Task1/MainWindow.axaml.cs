@@ -11,11 +11,15 @@ public partial class MainWindow : Window
         InitializeComponent();
 
         string inputPath = "db/Input Data.txt";
+        string outputPath = "db/Output Data.txt";
+
         var patients = FileService.ReadPatientsFromFile(inputPath);
 
         var wrapPanel = this.FindControl<WrapPanel>("PatientsWrapPanel");
 
         var filteredPatients = patients.Where(p => p.Department == 18).ToList();
+
+        FileService.WritePatientsToFile(outputPath, filteredPatients);
 
         for (int i = 0; i < filteredPatients.Count; i++)
         {
