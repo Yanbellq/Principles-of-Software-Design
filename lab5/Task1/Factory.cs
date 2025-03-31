@@ -85,8 +85,20 @@ public class Factory
         return productionCapacity * 365;
     }
 
-    public bool IsOldFactory()
+    public string IsOldFactory()
     {
-        return yearEstablished > 1995;
+        if (yearEstablished < 1995)
+        {
+            return "Ця фабрика стара.";
+        }
+        else
+        {
+            return "Ця фабрика нова.";
+        }
+    }
+
+    public double CalculateAnnualProfit()
+    {
+    return CalculateAnnualProduction() * 0.2;
     }
 }

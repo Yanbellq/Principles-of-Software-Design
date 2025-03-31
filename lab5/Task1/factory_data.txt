@@ -1,8 +1,8 @@
 Name: Unknown
 Location: Unknown
 Employees Count: 0
-Production Capacity: 0
+Production Capacity: 35
 Owner: Unknown
-Year Established: 0
+Year Established: 1996
 Product Type: Unknown
 --------------------------------------------------

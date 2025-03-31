@@ -42,10 +42,12 @@ public partial class MainWindow : Window
     {
         string info = factory.DisplayInfo();
         double annualProduction = factory.CalculateAnnualProduction();
-        bool isOld = factory.IsOldFactory();
+        string isOld = factory.IsOldFactory();
+        double annualProfit = factory.CalculateAnnualProfit();
 
         ShowMessage(info + $"\n\nРічна продуктивність: {annualProduction}\n" +
-                    (isOld ? "Це новий завод." : "Це старий завод."), 250);
+                           $"Річний прибуток: {annualProfit}\n" +
+                           isOld, 260);
     }
 
     private void SaveToFile(Factory factory)
