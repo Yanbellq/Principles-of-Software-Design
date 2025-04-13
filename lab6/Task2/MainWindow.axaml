@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="Task2.MainWindow"
+        Width="400" Height="500" Title="Навчальний матеріал">
+    <StackPanel Margin="10">
+        <TextBlock Text="Назва:" />
+        <TextBox Name="TitleInput" />
+
+        <TextBlock Text="Автор:" Margin="0,10,0,0" />
+        <TextBox Name="AuthorInput" />
+
+        <TextBlock Text="Предмет:" Margin="0,10,0,0" />
+        <TextBox Name="SubjectInput" />
+
+        <TextBlock Text="Тривалість (хв):" Margin="0,10,0,0" />
+        <TextBox Name="DurationInput" />
+
+        <Button Content="Додати Книгу" Margin="0,10,0,0" Click="OnAddBookClick" />
+        <Button Content="Додати Конспект" Click="OnAddNotesClick" />
+
+        <TextBlock Name="ResultText" Margin="0,20,0,0" />
+    </StackPanel>
+</Window>
