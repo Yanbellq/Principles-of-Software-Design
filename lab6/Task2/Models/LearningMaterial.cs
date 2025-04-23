@@ -30,50 +30,50 @@ public class Book : ILearningMaterial, IExam
 
     public void DisplayInfo()
     {
-        // Логика отображения информации будет реализована в GUI
+        
     }
 
     public void ReadMaterial()
     {
-        // Логика чтения материала будет реализована в GUI
+        
     }
 
     public void StartExam()
     {
-        // Логика начала экзамена будет реализована в GUI
+        
     }
 
     public void EndExam()
     {
-        // Логика завершения экзамена будет реализована в GUI
+        
     }
 }
 
 // Класс Конспект
 public class Notes : ILearningMaterial, IExam
 {
-    public string Title { get; set; } = string.Empty; // Инициализация по умолчанию
+    public string Title { get; set; } = string.Empty;
     public string Author { get; set; } = string.Empty;
     public string Subject { get; set; } = string.Empty;
     public int Duration { get; set; }
 
     public void DisplayInfo()
     {
-        // Логика отображения информации будет реализована в GUI
+    
     }
 
     public void ReadMaterial()
     {
-        // Логика чтения материала будет реализована в GUI
+    
     }
 
     public void StartExam()
     {
-        // Логика начала экзамена будет реализована в GUI
+    
     }
 
     public void EndExam()
     {
-        // Логика завершения экзамена будет реализована в GUI
+    
     }
 }
