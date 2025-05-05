@@ -1,74 +1,50 @@
 import tkinter as tk
 from tkinter import messagebox
-from collections import namedtuple
+from datetime import datetime
 
-# Іменований кортеж
-Product = namedtuple('Product', ['name', 'price', 'supplier', 'expiry'])
-
-# Початкові дані
-products_data = [
-    Product("Хліб", 20, "Коваль", "01.06.2025"),
-    Product("Молоко", 35, "Іваненко", "05.05.2025"),
-    Product("Цукор", 25, "Петренко", "15.07.2025"),
-    Product("Сіль", 15, "Кравчук", "30.12.2025"),
-    Product("Крупа", 40, "Бондар", "11.08.2025"),
-    Product("Яйця", 30, "Сидоренко", "22.04.2025"),
-    Product("Олія", 50, "Гриценко", "17.09.2025"),
-]
-
-current_products = list(products_data)  # Список для оновлення
-
-# Обчислення соціальних продуктів
-def social_products(products):
-    avg_price = sum(p.price for p in products) / len(products)
-    social = [p.name for p in products if p.price < avg_price]
-    result = f"Середня ціна: {avg_price:.2f}\nПродукти {', '.join(social)} входять в перелік соціальних."
-    return result
-
-# Оновити ціни
-def update_individual_prices():
-    global current_products
+def calculate():
     try:
-        updated = []
-        for i, entry in enumerate(price_entries):
-            new_price = float(entry.get())
-            updated.append(current_products[i]._replace(price=new_price))
-        current_products = updated
-        messagebox.showinfo("Оновлено", "Ціни оновлено успішно.")
-    except ValueError:
-        messagebox.showerror("Помилка", "Всі ціни повинні бути числами!")
+        start_time = datetime.strptime(entry_start.get(), '%H:%M:%S')
+        end_time = datetime.strptime(entry_end.get(), '%H:%M:%S')
+        rate_per_minute = int (entry_rate.get())
 
-# Показати результати
-def show_social_products():
-    output.delete('1.0', tk.END)
-    result = social_products(current_products)
-    output.insert(tk.END, result)
+        duration = (end_time - start_time).total_seconds()
+        if duration < 0:
+            duration += 24 * 3600
+
+        cost_hryvnias = (duration / 60) * (rate_per_minute / 100)
+
+        label_result.config(
+            text=f"Тривалість дзвінка: {int(duration)} сек\n"
+                 f"Вартість дзвінка: {cost_hryvnias:.2f} грн"
+        )
+    except ValueError:
+        messagebox.showerror("Помилка", "Будь ласка, введіть коректні значення!")
+
 
 # GUI
+
 root = tk.Tk()
-root.title("Редагування цін продуктів")
+root.title("Розрахунок вартості дзвінка")
 
-tk.Label(root, text="Введіть нову ціну для кожного продукту:").pack(pady=5)
+tk.Label(root, text="Час початку (ГГ:ХХ:СС):").grid(row=0, column=0, sticky="e")
+entry_start = tk.Entry(root)
+entry_start.grid(row=0, column=1)
 
-frame = tk.Frame(root)
-frame.pack()
+tk.Label(root, text="Час закінчення (ГГ:ХХ:СС):").grid(row=1, column=0, sticky="e")
+entry_end = tk.Entry(root)
+entry_end.grid(row=1, column=1)
 
-price_entries = []
+tk.Label(root, text="Вартість 1 хв (у копійках):").grid(row=2, column=0, sticky="e")
+entry_rate = tk.Entry(root)
+entry_rate.grid(row=2, column=1)
 
-# Створення полів введення для кожного продукту
-for i, product in enumerate(current_products):
-    tk.Label(frame, text=product.name).grid(row=i, column=0, padx=5, pady=2, sticky='e')
-    entry = tk.Entry(frame, width=10)
-    entry.insert(0, str(product.price))
-    entry.grid(row=i, column=1, padx=5, pady=2)
-    price_entries.append(entry)
+tk.Button(root, text="Розрахувати", command=calculate).grid(row=3, columnspan=2, pady=10)
 
-# Кнопки
-tk.Button(root, text="Оновити ціни", command=update_individual_prices).pack(pady=5)
-tk.Button(root, text="Показати соціальні продукти", command=show_social_products).pack(pady=5)
-
-# Вивід
-output = tk.Text(root, width=50, height=10)
-output.pack(pady=10)
+label_result = tk.Label(root, text="", fg="blue", font=("Arial", 12))
+label_result.grid(row=4, columnspan=2)
 
 root.mainloop()
+
+
+
