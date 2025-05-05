@@ -17,14 +17,12 @@ public class City : IComparable<City>, IComparer<City>, IEnumerable<City>
         Population = population;
     }
 
-    // Реалізація IComparable для порівняння за територією
     public int CompareTo(City? other)
     {
         if (other == null) return 1;
         return Area.CompareTo(other.Area);
     }
 
-    // Реалізація IComparer для порівняння за територією і населенням
     public int Compare(City? x, City? y)
     {
         if (x == null || y == null) return 0;
@@ -36,7 +34,6 @@ public class City : IComparable<City>, IComparer<City>, IEnumerable<City>
         return x.Population.CompareTo(y.Population);
     }
 
-    // Реалізація IEnumerable
     public IEnumerator<City> GetEnumerator()
     {
         yield return this;
