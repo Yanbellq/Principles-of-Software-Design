@@ -12,27 +12,37 @@ using Microsoft.Recognizers.Text.Number;
 using Microsoft.Recognizers.Text.Number.English;
 using Avalonia.Input;
 using System.Windows.Input;
-using Avalonia.Data;
 using Avalonia.Media;
 
 namespace lab12
 {
     public partial class MainWindow : Window
     {
+        private List<ModelResult> _currentResults = new List<ModelResult>();
+        private string? _currentFilePath;
+
         public MainWindow()
         {
             InitializeComponent();
 #if DEBUG
             this.AttachDevTools();
 #endif
-            // Initialize controls safely
-            btnOpenFile = this.FindControl<Button>("btnOpenFile");
+
+            // Ініціалізація кнопок
+            btnExtract = this.FindControl<Button>("btnExtract");
+            btnSave = this.FindControl<Button>("btnSave");
             txtInput = this.FindControl<TextBox>("txtInput");
             resultsListView = this.FindControl<ListBox>("resultsListView");
             lblCount = this.FindControl<TextBlock>("lblCount");
+
+            btnExtract.Click += BtnExtract_Click;
+            btnSave.Click += BtnSave_Click;
+
+            // Спочатку кнопка "Зберегти" неактивна
+            btnSave.IsEnabled = false;
         }
 
-        private async void BtnOpenFile_Click(object? sender, RoutedEventArgs e)
+        private async void BtnExtract_Click(object? sender, RoutedEventArgs e)
         {
             try
             {
@@ -41,28 +51,75 @@ namespace lab12
 
                 var files = await storageProvider.OpenFilePickerAsync(new FilePickerOpenOptions
                 {
-                    Title = "Select text file",
+                    Title = "Виберіть текстовий файл",
                     FileTypeFilter = new[]
                     {
-                        new FilePickerFileType("Text files") { Patterns = new[] { "*.txt" } },
-                        new FilePickerFileType("All files") { Patterns = new[] { "*" } }
+                        new FilePickerFileType("Текстові файли") { Patterns = new[] { "*.txt" } },
+                        new FilePickerFileType("Всі файли") { Patterns = new[] { "*" } }
                     }
                 });
 
                 if (files.Count > 0 && files[0] is { } file)
                 {
+                    _currentFilePath = file.Path.AbsolutePath;
                     await using var stream = await file.OpenReadAsync();
                     using var reader = new StreamReader(stream);
                     txtInput.Text = await reader.ReadToEndAsync();
 
-                    var results = RecognizeOrdinals(txtInput.Text ?? string.Empty);
-                    DisplayResults(results);
-                    await SaveResultsAsync(results, file.Name);
+                    _currentResults = RecognizeOrdinals(txtInput.Text ?? string.Empty);
+                    DisplayResults(_currentResults);
+
+                    // Активуємо кнопку "Зберегти" після успішного витягування
+                    btnSave.IsEnabled = true;
                 }
             }
             catch (Exception ex)
             {
-                await ShowSimpleDialog("Error", $"Error: {ex.Message}");
+                await ShowSimpleDialog("Помилка", $"Помилка: {ex.Message}");
+            }
+        }
+
+        private async void BtnSave_Click(object? sender, RoutedEventArgs e)
+        {
+            if (_currentResults.Count == 0)
+            {
+                await ShowSimpleDialog("Попередження", "Немає результатів для збереження");
+                return;
+            }
+
+            try
+            {
+                var storageProvider = GetStorageProvider();
+                if (storageProvider is null) return;
+
+                var file = await storageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
+                {
+                    Title = "Зберегти результати",
+                    FileTypeChoices = new[]
+                    {
+                        new FilePickerFileType("Текстові файли") { Patterns = new[] { "*.txt" } },
+                        new FilePickerFileType("Всі файли") { Patterns = new[] { "*" } }
+                    },
+                    SuggestedFileName = Path.GetFileNameWithoutExtension(_currentFilePath ?? "results") + "_results.txt"
+                });
+
+                if (file is not null)
+                {
+                    await using var stream = await file.OpenWriteAsync();
+                    await using var writer = new StreamWriter(stream);
+
+                    await writer.WriteLineAsync($"Знайдено порядкових числівників: {_currentResults.Count}");
+                    foreach (var result in _currentResults)
+                    {
+                        await writer.WriteLineAsync($"{result.Text} - {result.Resolution["value"]}");
+                    }
+
+                    await ShowSimpleDialog("Успіх", "Результати успішно збережено!");
+                }
+            }
+            catch (Exception ex)
+            {
+                await ShowSimpleDialog("Помилка", $"Помилка при збереженні: {ex.Message}");
             }
         }
 
@@ -110,7 +167,7 @@ namespace lab12
 
         private void DisplayResults(List<ModelResult> results)
         {
-            lblCount.Text = $"Found ordinals: {results.Count}";
+            lblCount.Text = $"Знайдено порядкових числівників: {results.Count}";
 
             var items = new List<string>();
             foreach (var result in results)
@@ -118,37 +175,6 @@ namespace lab12
                 items.Add($"{result.Text} - {result.Resolution["value"]}");
             }
             resultsListView.ItemsSource = items;
-        }
-
-        private async Task SaveResultsAsync(List<ModelResult> results, string originalFileName)
-        {
-            var storageProvider = GetStorageProvider();
-            if (storageProvider is null) return;
-
-            var file = await storageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
-            {
-                Title = "Save results",
-                FileTypeChoices = new[]
-                {
-                    new FilePickerFileType("Text files") { Patterns = new[] { "*.txt" } },
-                    new FilePickerFileType("All files") { Patterns = new[] { "*" } }
-                },
-                SuggestedFileName = Path.GetFileNameWithoutExtension(originalFileName) + "_results.txt"
-            });
-
-            if (file is not null)
-            {
-                await using var stream = await file.OpenWriteAsync();
-                await using var writer = new StreamWriter(stream);
-
-                await writer.WriteLineAsync($"Found ordinals: {results.Count}");
-                foreach (var result in results)
-                {
-                    await writer.WriteLineAsync($"{result.Text} - {result.Resolution["value"]}");
-                }
-
-                await ShowSimpleDialog("Success", "Results saved successfully!");
-            }
         }
     }
 
