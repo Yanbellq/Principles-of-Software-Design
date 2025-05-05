@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab12"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+        x:Class="lab12.MainWindow"
+        Title="Number Recognizer"
+        Width="800" Height="600">
+        
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,*" ColumnDefinitions="*,*" Margin="10">
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                   Text="Number Recognizer Application" 
+                   FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+        
+        <Button Name="btnOpenFile" Grid.Row="1" Grid.Column="0" Content="Open File" Margin="5" Click="BtnOpenFile_Click"/>
+        <Button Name="btnSaveFile" Grid.Row="1" Grid.Column="1" Content="Save Result" Margin="5" Click="BtnSaveFile_Click"/>
+        
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Input Text:" Margin="5"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="Output Text:" Margin="5"/>
+        
+        <ScrollViewer Grid.Row="3" Grid.Column="0" Margin="5" Height="150">
+            <TextBox Name="txtInput" 
+                     AcceptsReturn="True" TextWrapping="Wrap"/>
+        </ScrollViewer>
+        
+        <ScrollViewer Grid.Row="3" Grid.Column="1" Margin="5" Height="150">
+            <TextBox Name="txtOutput" 
+                     AcceptsReturn="True" TextWrapping="Wrap"/>
+        </ScrollViewer>
+        
+        <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="Recognition Results:" Margin="5"/>
+        <ListBox Name="resultsListView" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Height="200">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="local:ResultItem">
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <TextBlock Text="{Binding Text}" FontWeight="Bold" Width="100"/>
+                        <TextBlock Text="{Binding Start}" Width="50"/>
+                        <TextBlock Text="{Binding End}" Width="50"/>
+                        <TextBlock Text="{Binding Value}" Width="100"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>

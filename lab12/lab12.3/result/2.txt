@@ -1,0 +1,10 @@
+Number: 380442345678 (Value: 380442345678)
+Number: 0997654321 (Value: 997654321)
+Number: 1 (Value: 1)
+Number: 800 (Value: 800)
+Number: 123 (Value: 123)
+Number: 4567 (Value: 4567)
+Number: 102 (Value: 102)
+Number: 103 (Value: 103)
+Phone: +380442345678
+Phone: 0997654321

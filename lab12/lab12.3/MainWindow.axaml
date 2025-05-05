@@ -1,0 +1,44 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        x:Class="lab12.MainWindow"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <Button Name="btnOpenFile" Content="Відкрити файл" Width="120" Margin="0,0,10,0" Click="btnOpenFile_Click"/>
+            <Button Name="btnRecognize" Content="Розпізнати" Width="120" Margin="0,0,10,0" Click="btnRecognize_Click"/>
+            <Button Name="btnSaveFile" Content="Зберегти результат" Width="150" Click="btnSaveFile_Click"/>
+        </StackPanel>
+
+        <!-- Input area with ScrollViewer -->
+        <Border Grid.Row="1" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1" CornerRadius="3">
+            <StackPanel>
+                <TextBlock Text="Вхідні дані" Margin="5,0" FontWeight="Bold"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <TextBox Name="txtInput" TextWrapping="Wrap" AcceptsReturn="True"/>
+                </ScrollViewer>
+            </StackPanel>
+        </Border>
+
+        <!-- Output area with ScrollViewer -->
+        <Border Grid.Row="2" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1" CornerRadius="3">
+            <StackPanel>
+                <TextBlock Text="Результат розпізнавання" Margin="5,0" FontWeight="Bold"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <TextBox Name="txtOutput" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="True"/>
+                </ScrollViewer>
+            </StackPanel>
+        </Border>
+
+        <TextBlock Text="Розроблено для завдання 1.3" Grid.Row="3" HorizontalAlignment="Center" FontStyle="Italic" Foreground="Gray"/>
+    </Grid>
+</Window>
