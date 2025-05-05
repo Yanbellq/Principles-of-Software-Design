@@ -1,0 +1,45 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+        x:Class="lab7.MainWindow"
+        Title="Construction Projects">
+    <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,*,*" Margin="10">
+        <TextBlock Text="Назва компанії:" Grid.Row="0" Grid.Column="0"/>
+        <TextBox Name="textBox1" Grid.Row="0" Grid.Column="1" Margin="5"/>
+        
+        <TextBlock Text="Назва об'єкту:" Grid.Row="1" Grid.Column="0"/>
+        <TextBox Name="textBox2" Grid.Row="1" Grid.Column="1" Margin="5"/>
+        
+        <TextBlock Text="Площа (м²):" Grid.Row="2" Grid.Column="0"/>
+        <TextBox Name="textBox3" Grid.Row="2" Grid.Column="1" Margin="5"/>
+        
+        <TextBlock Text="Дата початку (ddMMyyyy):" Grid.Row="3" Grid.Column="0"/>
+        <TextBox Name="textBox4" Grid.Row="3" Grid.Column="1" Margin="5"/>
+        
+        <TextBlock Text="Планова дата завершення (ddMMyyyy):" Grid.Row="4" Grid.Column="0"/>
+        <TextBox Name="textBox5" Grid.Row="4" Grid.Column="1" Margin="5"/>
+        
+        <TextBlock Text="Статус:" Grid.Row="5" Grid.Column="0"/>
+        <ComboBox Name="comboBox1" Grid.Row="5" Grid.Column="1" Margin="5"/>
+        
+        <Button Name="button1" Content="Додати об'єкт" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="5"
+                Click="Button1_Click"/>
+        
+        <TextBlock Name="statusTextBlock" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" 
+                   Foreground="Red" TextWrapping="Wrap"/>
+        
+        <ListBox Name="listBox1" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="5"/>
+        
+        <StackPanel Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="button2" Content="Тривалість" Margin="5" Click="Button2_Click"/>
+            <Button Name="button3" Content="Будуються у 4 кв." Margin="5" Click="Button3_Click"/>
+            <Button Name="button4" Content="Площа цього року" Margin="5" Click="Button4_Click"/>
+            <Button Name="button5" Content="Найшвидший" Margin="5" Click="Button5_Click"/>
+            <Button Name="button6" Content="Прострочені" Margin="5" Click="Button6_Click"/>
+        </StackPanel>
+        
+        <ListBox Name="listBox2" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Margin="5"/>
+    </Grid>
+</Window>
