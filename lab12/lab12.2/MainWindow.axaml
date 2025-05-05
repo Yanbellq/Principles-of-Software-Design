@@ -1,0 +1,25 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="lab12.MainWindow"
+        Title="Ordinal Number Recognizer"
+        Width="800" Height="600">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10" Spacing="10">
+            <Button x:Name="btnOpenFile" Content="Open File" Click="BtnOpenFile_Click"/>
+            <TextBlock x:Name="lblCount" VerticalAlignment="Center"/>
+        </StackPanel>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBox x:Name="txtInput" Grid.Column="0" Margin="5" 
+                    AcceptsReturn="True" TextWrapping="Wrap"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            
+            <ListBox x:Name="resultsListView" Grid.Column="1" Margin="5"/>
+        </Grid>
+    </DockPanel>
+</Window>
