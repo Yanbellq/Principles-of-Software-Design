@@ -124,7 +124,7 @@ namespace lab7
         }
     }
 
-    public class SKLAD
+    public struct SKLAD
     {
         public string NAME { get; set; } = string.Empty;
         public string TYPE { get; set; } = string.Empty;

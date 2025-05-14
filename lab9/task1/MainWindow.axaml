@@ -1,0 +1,53 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+        x:Class="lab9.MainWindow"
+        Title="Обробка списків" Width="1200" Height="600">
+        
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,*" Margin="10">
+        <!-- Заголовок -->
+        <TextBlock Text="Обробка списків L1, L2, L3" Grid.ColumnSpan="2" 
+                   FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+        
+        <!-- Завантаження файлів -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Margin="0,0,0,10">
+            <Button Content="Завантажити L1" Click="LoadL1_Click" Margin="0,0,10,0"/>
+            <TextBox x:Name="txtFileL1" Width="300" IsReadOnly="True"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="0,0,0,10">
+            <Button Content="Завантажити L2" Click="LoadL2_Click" Margin="0,0,10,0"/>
+            <TextBox x:Name="txtFileL2" Width="300" IsReadOnly="True"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" Margin="0,0,0,10">
+            <Button Content="Завантажити L3" Click="LoadL3_Click" Margin="0,0,10,0"/>
+            <TextBox x:Name="txtFileL3" Width="300" IsReadOnly="True"/>
+        </StackPanel>
+        
+        <!-- Кнопки дій -->
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+            <Button Content="Виконати заміну (L2→L3 в L1)" Click="Process_Click" Margin="0,0,20,0" Width="200"/>
+            <Button Content="Зберегти результат" Click="Save_Click" Width="150"/>
+        </StackPanel>
+        
+        <!-- Відображення списків -->
+        <TextBlock Text="Список L1:" Grid.Row="4" Grid.Column="0"/>
+        <ListBox x:Name="listBoxL1" Grid.Row="5" Grid.Column="0" Height="150" Margin="0,0,0,10"/>
+        
+        <TextBlock Text="Список L2:" Grid.Row="4" Grid.Column="1"/>
+        <ListBox x:Name="listBoxL2" Grid.Row="5" Grid.Column="1" Height="150" Margin="0,0,0,10"/>
+        
+        <TextBlock Text="Список L3:" Grid.Row="6" Grid.Column="0"/>
+        <ListBox x:Name="listBoxL3" Grid.Row="7" Grid.Column="0" Height="150"/>
+        
+        <TextBlock Text="Результат (L1 після обробки):" Grid.Row="6" Grid.Column="1"/>
+        <ListBox x:Name="listBoxResult" Grid.Row="7" Grid.Column="1" Height="150"/>
+        
+        <!-- Статус -->
+        <TextBlock x:Name="statusText" Grid.Row="8" Grid.ColumnSpan="2" Margin="0,10,0,0" 
+                   TextWrapping="Wrap" HorizontalAlignment="Center"/>
+    </Grid>
+</Window>

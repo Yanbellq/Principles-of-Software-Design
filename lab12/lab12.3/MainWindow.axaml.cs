@@ -88,12 +88,6 @@ namespace lab12
             var resultBuilder = new StringBuilder();
             inputText = txtInput.Text;
 
-            // Number recognition (using constant culture)
-            var numberResults = NumberRecognizer.RecognizeNumber(inputText, Culture);
-            foreach (var result in numberResults)
-            {
-                resultBuilder.AppendLine($"Number: {result.Text} (Value: {result.Resolution["value"]})");
-            }
 
             // Number with unit recognition
             var numberWithUnitResults = NumberWithUnitRecognizer.RecognizeCurrency(inputText, Culture);
@@ -114,6 +108,13 @@ namespace lab12
             foreach (var result in phoneResults)
             {
                 resultBuilder.AppendLine($"Phone: {result.Text}");
+            }
+
+            // Number recognition (using constant culture)
+            var numberResults = NumberRecognizer.RecognizeNumber(inputText, Culture);
+            foreach (var result in numberResults)
+            {
+                resultBuilder.AppendLine($"Number: {result.Text} (Value: {result.Resolution["value"]})");
             }
 
             txtOutput.Text = resultBuilder.ToString();
